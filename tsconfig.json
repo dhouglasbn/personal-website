@@ -1,16 +1,21 @@
 {
-  "extends": "@tsconfig/node22/tsconfig.json",
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "_version": "22.0.0",
-
+  "extends": ["@tsconfig/node22/tsconfig.json", "@tsconfig/vite-react/tsconfig.json"],
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
   "compilerOptions": {
-    "lib": ["es2024", "ESNext.Array", "ESNext.Collection", "ESNext.Iterator"],
-    "module": "nodenext",
-    "target": "es2022",
-
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "moduleResolution": "node16"
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   }
 }
