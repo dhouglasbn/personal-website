@@ -5,10 +5,10 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function About() {
   const achievements = [
-    { number: "50+", label: "Projects Completed" },
+    { number: "10+", label: "Projects Completed" },
     { number: "3+", label: "Years Experience" },
     { number: "15+", label: "Technologies Mastered" },
-    { number: "99%", label: "Client Satisfaction" },
+    { number: "90%", label: "Client Satisfaction" },
   ];
 
   return (
@@ -62,21 +62,22 @@ export function About() {
             </h3>
             
             <p className="text-gray-300 leading-relaxed">
-              I'm a passionate full-stack developer with a love for cyberpunk aesthetics and 
-              cutting-edge technology. My journey began in the neon-lit world of web development, 
-              where I discovered the perfect fusion of creativity and logic.
+              In the beginning of 2021, I began my path in web development with the Node.js + React.js stack. 
+              Since then, I've grown into a full-stack developer, and this stack has shaped the way 
+              I understand technology, software principles, and innovation.
             </p>
             
             <p className="text-gray-300 leading-relaxed">
               When I'm not crafting immersive digital experiences, you'll find me exploring 
-              new frameworks, contributing to open-source projects, or designing futuristic 
-              user interfaces that push the boundaries of what's possible.
+              new frameworks. I’m always eager to learn and explore new ideas — who knows, maybe one day 
+              I'll shift into a new field. But for now, I'm focused on building my career and finding 
+              new opportunities in web development.
             </p>
             
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-[var(--neon-cyan)] rounded-full animate-pulse" />
-                <span className="text-gray-300">Based in the Digital Metropolis</span>
+                <span className="text-gray-300">Continuously exploring new tech</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-[var(--neon-pink)] rounded-full animate-pulse" />

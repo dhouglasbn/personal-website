@@ -9,10 +9,10 @@ export function Skills() {
       title: "Frontend Technologies",
       color: "var(--neon-cyan)",
       skills: [
-        { name: "React", level: 95, icon: "⚛️" },
-        { name: "TypeScript", level: 90, icon: "🔷" },
-        { name: "Next.js", level: 88, icon: "▲" },
-        { name: "Tailwind CSS", level: 92, icon: "🎨" },
+        { name: "React", level: 85, icon: "⚛️" },
+        { name: "TypeScript", level: 95, icon: "🔷" },
+        { name: "Next.js", level: 70, icon: "▲" },
+        { name: "Tailwind CSS", level: 75, icon: "🎨" },
         { name: "Motion/Framer", level: 85, icon: "✨" },
       ]
     },
@@ -20,32 +20,40 @@ export function Skills() {
       title: "Backend & Database",
       color: "var(--neon-pink)",
       skills: [
-        { name: "Node.js", level: 88, icon: "🟢" },
+        { name: "Node.js", level: 90, icon: "🟢" },
         { name: "Express", level: 85, icon: "🚀" },
-        { name: "MongoDB", level: 80, icon: "🍃" },
-        { name: "PostgreSQL", level: 82, icon: "🐘" },
-        { name: "GraphQL", level: 75, icon: "📊" },
+        { name: "MongoDB", level: 85, icon: "🍃" },
+        { name: "PostgreSQL", level: 95, icon: "🐘" },
+        { name: "AI SDK", level: 70, icon: "🤖" },
       ]
     },
     {
       title: "Tools & DevOps",
       color: "var(--neon-green)",
       skills: [
-        { name: "Git & GitHub", level: 93, icon: "🐙" },
-        { name: "Docker", level: 78, icon: "🐳" },
-        { name: "AWS", level: 72, icon: "☁️" },
+        { name: "Git & GitHub", level: 95, icon: "🐙" },
+        { name: "Docker", level: 80, icon: "🐳" },
+        { name: "AWS", level: 50, icon: "☁️" },
         { name: "Figma", level: 88, icon: "🎨" },
-        { name: "VS Code", level: 95, icon: "💻" },
+        { name: "Npm", level: 95, icon: "💻" },
       ]
     }
   ];
 
   const certifications = [
-    "AWS Solutions Architect",
-    "Meta Frontend Developer",
-    "Google Cloud Professional",
-    "MongoDB Developer",
-  ];
+    {
+      title: "NLW Connect - Nodejs",
+      link: "https://drive.google.com/file/d/1SB3RDnUqW1Y6kb4RDjVNKyxgQtl0F8RW/view?usp=sharing"
+    },
+    {
+      title: "Scrum Fundamentals",
+      link: "https://drive.google.com/file/d/1bP3prCyALOQvAG2tounHbBP7FqURgdab/view?usp=sharing"
+    },
+    {
+      title: "Semana X",
+      link: "https://drive.google.com/file/d/1-rvmdx0OYE_hmKdplTs-Vne6npxRw_ha/view?usp=sharing"
+    }
+  ]
 
   return (
     <section id="skills" className="py-20 px-6 bg-[var(--dark-secondary)]/30">
@@ -111,16 +119,10 @@ export function Skills() {
                       </div>
                       <div className="relative">
                         <div className="w-full bg-gray-700 rounded-full h-2">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.level}%` }}
-                            transition={{ duration: 1, delay: skillIndex * 0.1 }}
-                            viewport={{ once: true }}
-                            className="h-2 rounded-full"
-                            style={{ 
-                              background: `linear-gradient(90deg, ${category.color}, ${category.color}80)`,
-                              boxShadow: `0 0 10px ${category.color}40`
-                            }}
+                          <Progress 
+                            className="h-2 rounded-full" 
+                            value={skill.level} 
+                            progressColor={category.color} 
                           />
                         </div>
                       </div>
@@ -145,21 +147,23 @@ export function Skills() {
           
           <div className="flex flex-wrap justify-center gap-3">
             {certifications.map((cert, index) => (
-              <motion.div
-                key={cert}
+              <motion.a
+                key={cert.title}
+                href={cert.link}
+                target="_blank"
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, cursor: 'pointer' }}
               >
                 <Badge 
                   variant="outline" 
                   className="text-[var(--neon-green)] border-[var(--neon-green)]/50 hover:border-[var(--neon-green)] hover:shadow-[0_0_10px_var(--neon-green)] transition-all duration-300 px-4 py-2"
                 >
-                  🏆 {cert}
+                  🏆 {cert.title}
                 </Badge>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </motion.div>

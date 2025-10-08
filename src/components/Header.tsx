@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Link as ScrollLink } from 'react-scroll'
 
 export function Header() {
   const navItems = [
@@ -18,12 +19,18 @@ export function Header() {
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold text-[var(--neon-cyan)] tracking-wider cursor-pointer"
+          <ScrollLink
+            to="home"
+            smooth={true}
+            duration={500} // tempo em ms
           >
-            {"<Dhouglas Bandeira />"}
-          </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="text-2xl font-bold text-[var(--neon-cyan)] tracking-wider cursor-pointer"
+            >
+              {"<Dhouglas Bandeira />"}
+            </motion.div>
+          </ScrollLink>
           
           <div className="hidden md:flex space-x-8">
             {navItems.map((item, index) => (

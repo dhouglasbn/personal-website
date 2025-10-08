@@ -44,7 +44,7 @@ export function Hero() {
           className="mb-6"
         >
           <span className="text-[var(--neon-cyan)] text-lg tracking-widest uppercase">
-            Welcome to the Matrix
+            Welcome to the Future
           </span>
         </motion.div>
         
@@ -73,8 +73,8 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.8 }}
           className="text-lg text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
-          Crafting immersive digital experiences with cutting-edge technology. 
-          Specializing in React, Node.js, and the cyberpunk aesthetic of tomorrow.
+          Crafting immersive digital experiences with cutting-edge technology.
+          <br />Specializing in React, Node.js and Springboot ecosystem.
         </motion.p>
         
         <motion.div
