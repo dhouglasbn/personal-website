@@ -8,7 +8,7 @@ export function About() {
     { number: "10+", label: "Projects Completed" },
     { number: "3+", label: "Years Experience" },
     { number: "15+", label: "Technologies Mastered" },
-    { number: "90%", label: "Client Satisfaction" },
+    { number: "99%", label: "Client Satisfaction" },
   ];
 
   return (

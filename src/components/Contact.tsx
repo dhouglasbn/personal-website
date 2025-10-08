@@ -5,64 +5,66 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Badge } from "./ui/badge";
 import { 
-  Mail, 
-  MapPin, 
-  Phone, 
   Send, 
-  Github, 
-  Linkedin, 
-  Twitter,
-  Globe
 } from "lucide-react";
+import { contactInfo, socialLinks } from "../constants/social";
+import { useForm } from "react-hook-form";
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+} from "./ui/form";
+import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser'
+
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
+
+const contactFormSchema = z.object({
+  name: z.string(),
+  email: z.email(),
+  subject: z.string(),
+  message: z.string()
+})
+
+type ContactFormSchema = z.infer<typeof contactFormSchema>
 
 export function Contact() {
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "alex.neo@matrix.dev",
-      color: "var(--neon-cyan)",
+  const form = useForm<ContactFormSchema>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
     },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+1 (555) MATRIX",
-      color: "var(--neon-pink)",
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Digital Metropolis, Cyberspace",
-      color: "var(--neon-green)",
-    },
-    {
-      icon: Globe,
-      label: "Website",
-      value: "neo-matrix.dev",
-      color: "var(--neon-cyan)",
-    },
-  ];
+  })
 
-  const socialLinks = [
-    {
-      icon: Github,
-      label: "GitHub",
-      url: "https://github.com",
-      color: "var(--neon-cyan)",
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      url: "https://linkedin.com",
-      color: "var(--neon-pink)",
-    },
-    {
-      icon: Twitter,
-      label: "Twitter",
-      url: "https://twitter.com",
-      color: "var(--neon-green)",
-    },
-  ];
+  async function handleSubmitContact(data: ContactFormSchema) {
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: data.name,
+          from_email: data.email,
+          subject: data.subject,
+          message: data.message,
+        },
+        PUBLIC_KEY
+      )
+      alert('Email enviado com sucesso!')
+      form.reset()
+    } catch (error: EmailJSResponseStatus | unknown | any) {
+      alert(`Erro ao enviar email: ${error.text}`)
+    }
+  }
+  
 
   return (
     <section id="contact" className="py-20 px-6 bg-[var(--dark-secondary)]/30">
@@ -97,59 +99,99 @@ export function Contact() {
                 Send Transmission
               </h3>
               
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Name
-                    </label>
-                    <Input
-                      placeholder="Enter your name"
-                      className="bg-[var(--dark-secondary)]/50 border-[var(--neon-cyan)]/30 focus:border-[var(--neon-cyan)] text-white placeholder-gray-500"
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(handleSubmitContact)} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+
+                    {/* Name */}
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-gray-300">Name</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="Enter your name"
+                              className="bg-[var(--dark-secondary)]/50 border-[var(--neon-cyan)]/30 focus:border-[var(--neon-cyan)] text-white placeholder-gray-500"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    {/* Email */}
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-gray-300">Email</FormLabel>
+                          <FormControl>
+                            <Input
+                              type="email"
+                              placeholder="your.email@matrix.dev"
+                              className="bg-[var(--dark-secondary)]/50 border-[var(--neon-cyan)]/30 focus:border-[var(--neon-cyan)] text-white placeholder-gray-500"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Email
-                    </label>
-                    <Input
-                      type="email"
-                      placeholder="your.email@matrix.dev"
-                      className="bg-[var(--dark-secondary)]/50 border-[var(--neon-cyan)]/30 focus:border-[var(--neon-cyan)] text-white placeholder-gray-500"
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Subject
-                  </label>
-                  <Input
-                    placeholder="Project collaboration"
-                    className="bg-[var(--dark-secondary)]/50 border-[var(--neon-cyan)]/30 focus:border-[var(--neon-cyan)] text-white placeholder-gray-500"
+                  
+                  {/* Subject */}
+                  <FormField
+                    control={form.control}
+                    name="subject"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-gray-300">Subject</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Project collaboration"
+                            className="bg-[var(--dark-secondary)]/50 border-[var(--neon-cyan)]/30 focus:border-[var(--neon-cyan)] text-white placeholder-gray-500"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Message
-                  </label>
-                  <Textarea
-                    placeholder="Describe your project or collaboration idea..."
-                    rows={6}
-                    className="bg-[var(--dark-secondary)]/50 border-[var(--neon-cyan)]/30 focus:border-[var(--neon-cyan)] text-white placeholder-gray-500 resize-none"
+                  
+                  {/* Message */}
+                  <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-gray-300">Message</FormLabel>
+                        <FormControl>
+                          <Textarea
+                            placeholder="Describe your project or collaboration idea..."
+                            rows={6}
+                            className="bg-[var(--dark-secondary)]/50 border-[var(--neon-cyan)]/30 focus:border-[var(--neon-cyan)] text-white placeholder-gray-500 resize-none"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                </div>
-                
-                <Button 
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-[var(--neon-cyan)] text-black hover:bg-[var(--neon-cyan)]/80 hover:shadow-[0_0_20px_var(--neon-cyan)] transition-all duration-300 group"
-                >
-                  <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  Send Message
-                </Button>
-              </form>
+                  
+                  <Button 
+                    type="submit"
+                    size="lg"
+                    className="w-full bg-[var(--neon-cyan)] text-black hover:bg-[var(--neon-cyan)]/80 hover:shadow-[0_0_20px_var(--neon-cyan)] transition-all duration-300 group"
+                  >
+                    <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    Send Message
+                  </Button>
+                </form>
+              </Form>
             </Card>
           </motion.div>
 

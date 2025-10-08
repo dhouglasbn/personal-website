@@ -28,7 +28,7 @@ export function Footer() {
             viewport={{ once: true }}
             className="text-gray-500 text-sm"
           >
-            © 2024 Alex Neo • NeoMatrix Portfolio • All rights reserved in the digital realm
+            © 2025 Dhouglas Bandeira • Dhouglas Portfolio • All rights reserved
           </motion.div>
           
           <motion.div
