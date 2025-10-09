@@ -2,7 +2,7 @@ export const projects = [
   {
     title: "CodeCraft Summit",
     description: "A simple event subscriber with user ranking by links sent and AI assistance developed during NLW Connect event",
-    image: "../../public/nlwConnect.png",
+    image: "https://i.imgur.com/nvcTQxT.png",
     tags: ["ReactJS", "Next.js", "NodeJS", "Google Gemini", "PostgresSQL", "Redis", "Prisma", "Fastify"],
     demo_url: "",
     github_url: "https://github.com/dhouglasbn/nlwConnect-ReactJS",
@@ -22,7 +22,7 @@ export const projects = [
   {
     title: "Let Me Ask",
     description: "Q&A rooms App that allows people to get other users answers & AI answers developed during NLW Agents event",
-    image: "../../public/nlwAgents.png",
+    image: "https://i.imgur.com/4rCc0Td.png",
     tags: ["ReactJS", "NodeJS", "Google Gemini", "Drizzle", "Fastify", "Tailwind", "Tanstack", "RadixUI"],
     demo_url: "#",
     github_url: "https://github.com/dhouglasbn/nlw-agents",
@@ -32,7 +32,7 @@ export const projects = [
   {
     title: "JSExperts Drive",
     description: "A Google Drive Clone that uses pipeline and thread process to upload files developed during JSExperts event",
-    image: "../../public/JSExperts5.png",
+    image: "https://i.imgur.com/w8Bpwta.png",
     tags: ["NodeJS", "Socket.io", "HTML5", "CSS3"],
     demo_url: "#",
     github_url: "https://github.com/dhouglasbn/jsExperts5",
@@ -42,7 +42,7 @@ export const projects = [
   {
     title: "Pits A",
     description: "A server responsible for managing the whole business rules of a pizzaria",
-    image: "../../public/pitsa.png",
+    image: "https://i.imgur.com/W49mVVx.jpeg",
     tags: ["SpringBoot", "JUnit5", "h2", "WebSockets"],
     demo_url: "#",
     github_url: "https://github.com/psoft-2023-1/projeto-psoft-grupo3-projeto-psoft",
