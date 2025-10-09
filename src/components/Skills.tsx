@@ -34,8 +34,8 @@ export function Skills() {
         { name: "Git & GitHub", level: 95, icon: "🐙" },
         { name: "Docker", level: 80, icon: "🐳" },
         { name: "AWS", level: 50, icon: "☁️" },
-        { name: "Figma", level: 88, icon: "🎨" },
-        { name: "Npm", level: 95, icon: "💻" },
+        { name: "Figma", level: 70, icon: "🎨" },
+        { name: "Npm", level: 90, icon: "💻" },
       ]
     }
   ];

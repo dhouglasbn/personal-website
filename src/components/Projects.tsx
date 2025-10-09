@@ -4,59 +4,9 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ExternalLink, Github, Zap } from "lucide-react";
+import { projects } from "../constants/projects";
 
 export function Projects() {
-  const projects = [
-    {
-      title: "CyberCommerce Platform",
-      description: "A futuristic e-commerce platform with AR product visualization and blockchain payments. Built with Next.js, Three.js, and Solidity.",
-      image: "https://images.unsplash.com/photo-1752253604157-65fb42c30816?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwdGVjaCUyMGludGVyZmFjZXxlbnwxfHx8fDE3NTk2MDc0MTR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["React", "Next.js", "Three.js", "Blockchain", "AR/VR"],
-      color: "var(--neon-cyan)",
-      featured: true,
-    },
-    {
-      title: "Neural Network Dashboard",
-      description: "Real-time analytics dashboard for AI model monitoring with cyberpunk-inspired data visualizations and predictive insights.",
-      image: "https://images.unsplash.com/photo-1635571433479-299afc37eff3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuZW9uJTIwZGlnaXRhbCUyMGFydHxlbnwxfHx8fDE3NTk2MTc2OTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["TypeScript", "D3.js", "Node.js", "MongoDB", "AI/ML"],
-      color: "var(--neon-pink)",
-      featured: true,
-    },
-    {
-      title: "Matrix Chat Protocol",
-      description: "Decentralized messaging app with end-to-end encryption, quantum-resistant security, and holographic user interfaces.",
-      image: "https://images.unsplash.com/photo-1655036387197-566206c80980?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjeWJlcnB1bmslMjBjb2RpbmclMjBzZXR1cHxlbnwxfHx8fDE3NTk2MTc2OTR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["React Native", "WebRTC", "Cryptography", "P2P"],
-      color: "var(--neon-green)",
-      featured: false,
-    },
-    {
-      title: "Quantum Finance Tracker",
-      description: "Cryptocurrency portfolio manager with quantum computing integration for market prediction and risk analysis.",
-      image: "https://images.unsplash.com/photo-1752253604157-65fb42c30816?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwdGVjaCUyMGludGVyZmFjZXxlbnwxfHx8fDE3NTk2MDc0MTR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["Vue.js", "Python", "Quantum", "Finance API"],
-      color: "var(--neon-cyan)",
-      featured: false,
-    },
-    {
-      title: "Holographic UI Kit",
-      description: "Open-source component library for building futuristic interfaces with 3D holographic effects and particle systems.",
-      image: "https://images.unsplash.com/photo-1635571433479-299afc37eff3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuZW9uJTIwZGlnaXRhbCUyMGFydHxlbnwxfHx8fDE3NTk2MTc2OTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["Storybook", "WebGL", "Sass", "Open Source"],
-      color: "var(--neon-pink)",
-      featured: false,
-    },
-    {
-      title: "Digital Twin City",
-      description: "Smart city simulation platform with IoT integration, real-time monitoring, and AI-powered urban planning tools.",
-      image: "https://images.unsplash.com/photo-1655036387197-566206c80980?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjeWJlcnB1bmslMjBjb2RpbmclMjBzZXR1cHxlbnwxfHx8fDE3NTk2MTc2OTR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["Unity", "IoT", "AWS", "Machine Learning"],
-      color: "var(--neon-green)",
-      featured: false,
-    },
-  ];
-
   return (
     <section id="projects" className="py-20 px-6">
       <div className="container mx-auto max-w-7xl">
@@ -129,21 +79,33 @@ export function Projects() {
                   </div>
                   
                   <div className="flex gap-3">
-                    <Button 
-                      size="sm" 
-                      className="bg-[var(--neon-cyan)] text-black hover:bg-[var(--neon-cyan)]/80 hover:shadow-[0_0_15px_var(--neon-cyan)] transition-all group/btn"
+                    <a 
+                      href={project.demo_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <ExternalLink className="mr-2 h-4 w-4 group-hover/btn:rotate-12 transition-transform" />
-                      Live Demo
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      className="border-[var(--neon-pink)] text-[var(--neon-pink)] hover:bg-[var(--neon-pink)] hover:text-black transition-all group/btn"
+                      <Button 
+                        size="sm" 
+                        className="bg-[var(--neon-cyan)] text-black hover:bg-[var(--neon-cyan)]/80 hover:shadow-[0_0_15px_var(--neon-cyan)] transition-all group/btn cursor-pointer"
+                      >
+                        <ExternalLink className="mr-2 h-4 w-4 group-hover/btn:rotate-12 transition-transform" />
+                        Live Demo
+                      </Button>
+                    </a>
+                    <a
+                      href={project.github_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <Github className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
-                      Code
-                    </Button>
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                        className="border-[var(--neon-pink)] text-[var(--neon-pink)] hover:bg-[var(--neon-pink)] hover:text-black transition-all group/btn cursor-pointer"
+                      >
+                        <Github className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
+                        Code
+                      </Button>
+                    </a>
                   </div>
                 </div>
               </Card>
@@ -162,7 +124,7 @@ export function Projects() {
           More Projects
         </motion.h3>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.filter(p => !p.featured).map((project, index) => (
             <motion.div
               key={project.title}
@@ -172,7 +134,7 @@ export function Projects() {
               viewport={{ once: true }}
               className="group"
             >
-              <Card className="bg-[var(--dark-bg)]/60 border border-gray-700 hover:border-[var(--neon-cyan)]/50 transition-all duration-300 h-full">
+              <Card className="bg-[var(--dark-bg)]/60 border border-gray-700 hover:border-[var(--neon-cyan)]/50 transition-all duration-300 h-full overflow-hidden rounded-xl">
                 <div className="relative overflow-hidden">
                   <ImageWithFallback
                     src={project.image}
@@ -209,10 +171,12 @@ export function Projects() {
                   </div>
                   
                   <div className="flex gap-2">
-                    <Button size="sm" variant="outline" className="flex-1 text-xs">
-                      <Zap className="mr-1 h-3 w-3" />
-                      View
-                    </Button>
+                    <a href={project.github_url} target="_blank" rel="noopener noreferrer">
+                      <Button size="sm" variant="outline" className="flex-1 text-xs cursor-pointer">
+                        <Zap className="mr-1 h-3 w-3" />
+                        View
+                      </Button>
+                    </a>
                   </div>
                 </div>
               </Card>
