@@ -5,8 +5,11 @@ import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ExternalLink, Github, Zap } from "lucide-react";
 import { projects } from "../constants/projects";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export function Projects() {
+  const { t, language } = useLanguage()
+
   return (
     <section id="projects" className="py-20 px-6">
       <div className="container mx-auto max-w-7xl">
@@ -18,12 +21,11 @@ export function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--neon-green)]">
-            Featured Projects
+            {t('projects.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[var(--neon-green)] to-[var(--neon-cyan)] mx-auto mb-6" />
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Explore my latest creations that push the boundaries of technology 
-            and design in the digital realm.
+            {t('projects.description')}
           </p>
         </motion.div>
 
@@ -48,7 +50,7 @@ export function Projects() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--dark-bg)] via-transparent to-transparent" />
                   <div className="absolute top-4 right-4">
                     <Badge className="bg-[var(--neon-cyan)]/20 text-[var(--neon-cyan)] border-[var(--neon-cyan)]">
-                      Featured
+                      {t('projects.featured')}
                     </Badge>
                   </div>
                 </div>
@@ -59,7 +61,7 @@ export function Projects() {
                   </h3>
                   
                   <p className="text-gray-400 mb-4 leading-relaxed">
-                    {project.description}
+                    {language === 'en' ? project.description.en : project.description.pt}
                   </p>
                   
                   <div className="flex flex-wrap gap-2 mb-6">
@@ -89,7 +91,7 @@ export function Projects() {
                         className="bg-[var(--neon-cyan)] text-black hover:bg-[var(--neon-cyan)]/80 hover:shadow-[0_0_15px_var(--neon-cyan)] transition-all group/btn cursor-pointer"
                       >
                         <ExternalLink className="mr-2 h-4 w-4 group-hover/btn:rotate-12 transition-transform" />
-                        Live Demo
+                        {t('projects.liveDemo')}
                       </Button>
                     </a>
                     <a
@@ -103,7 +105,7 @@ export function Projects() {
                         className="border-[var(--neon-pink)] text-[var(--neon-pink)] hover:bg-[var(--neon-pink)] hover:text-black transition-all group/btn cursor-pointer"
                       >
                         <Github className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
-                        Code
+                        {t('projects.code')}
                       </Button>
                     </a>
                   </div>
@@ -121,7 +123,7 @@ export function Projects() {
           viewport={{ once: true }}
           className="text-2xl font-bold text-white mb-8 text-center"
         >
-          More Projects
+          {t('projects.more')}
         </motion.h3>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -150,7 +152,7 @@ export function Projects() {
                   </h4>
                   
                   <p className="text-gray-400 text-sm mb-3 line-clamp-2">
-                    {project.description}
+                    {language === 'en' ? project.description.en : project.description.pt}
                   </p>
                   
                   <div className="flex flex-wrap gap-1 mb-3">
@@ -174,7 +176,7 @@ export function Projects() {
                     <a href={project.github_url} target="_blank" rel="noopener noreferrer">
                       <Button size="sm" variant="outline" className="flex-1 text-xs cursor-pointer">
                         <Zap className="mr-1 h-3 w-3" />
-                        View
+                        {t('projects.view')}
                       </Button>
                     </a>
                   </div>

@@ -1,11 +1,24 @@
 import { motion } from "motion/react";
 import { Button } from "./ui/button";
 import { Link as ScrollLink } from 'react-scroll'
-import { ChevronDown, Code, Zap } from "lucide-react";
+import { ChevronDown, Code, Download, Zap } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export function Hero() {
+  const { t } = useLanguage()
+
+  const handleDownloadCV = () => {
+    const link = document.createElement('a')
+    link.href = 'https://drive.google.com/file/d/1IYRuxx2U9ddbxn_NNec3XosUOsbMXG5X/view?usp=sharing'
+    link.target = '_blank'
+    link.download = 'DhouglasBandeira_CV.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-8">
       {/* Animated grid background */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,255,0.1)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse" />
@@ -44,7 +57,7 @@ export function Hero() {
           className="mb-6"
         >
           <span className="text-[var(--neon-cyan)] text-lg tracking-widest uppercase">
-            Welcome to the Future
+            {t('hero.welcome')}
           </span>
         </motion.div>
         
@@ -54,7 +67,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.4 }}
           className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-[var(--neon-cyan)] via-white to-[var(--neon-pink)] bg-clip-text text-transparent"
         >
-          Dhouglas Bandeira
+          {t('hero.name')}
         </motion.h1>
         
         <motion.div
@@ -63,8 +76,8 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.6 }}
           className="text-2xl md:text-3xl text-gray-300 mb-8 font-light"
         >
-          <span className="text-[var(--neon-green)]">Full Stack Developer</span> &{" "}
-          <span className="text-[var(--neon-pink)]">Digital Architect</span>
+          <span className="text-[var(--neon-green)]">{t('hero.fullstack')}</span> &{" "}
+          <span className="text-[var(--neon-pink)]">{t('hero.architect')}</span>
         </motion.div>
         
         <motion.p
@@ -73,8 +86,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.8 }}
           className="text-lg text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
-          Crafting immersive digital experiences with cutting-edge technology.
-          <br />Specializing in React, Node.js and Springboot ecosystem.
+          {t('hero.description')}
         </motion.p>
         
         <motion.div
@@ -93,7 +105,7 @@ export function Hero() {
               className="bg-[var(--neon-cyan)] text-black hover:bg-[var(--neon-cyan)]/80 hover:shadow-[0_0_20px_var(--neon-cyan)] transition-all duration-300 group cursor-pointer"
             >
               <Code className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
-              View My Work
+              {t('hero.viewWork')}
             </Button>
           </ScrollLink>
           
@@ -108,9 +120,19 @@ export function Hero() {
               className="border-[var(--neon-pink)] text-[var(--neon-pink)] hover:bg-[var(--neon-pink)] hover:text-black hover:shadow-[0_0_20px_var(--neon-pink)] transition-all duration-300 group cursor-pointer"
             >
               <Zap className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-              Get In Touch
+              {t('hero.getInTouch')}
             </Button>
           </ScrollLink>
+
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={handleDownloadCV}
+            className="border-[var(--neon-green)] text-[var(--neon-green)] hover:bg-[var(--neon-green)] hover:text-black hover:shadow-[0_0_20px_var(--neon-green)] transition-all duration-300 group cursor-pointer"
+          >
+            <Download className="mr-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
+            {t('hero.downloadCV')}
+          </Button>
         </motion.div>
       </div>
       

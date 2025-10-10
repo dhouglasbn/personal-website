@@ -1,13 +1,17 @@
 import { motion } from "motion/react";
 import { Link as ScrollLink } from 'react-scroll'
+import { useLanguage } from "../contexts/LanguageContext";
+import { Languages } from "lucide-react";
 
 export function Header() {
+  const { t, language, toggleLanguage } = useLanguage()
+
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: t('nav.home'), href: "#home" },
+    { name: t('nav.about'), href: "#about" },
+    { name: t('nav.skills'), href: "#skills" },
+    { name: t('nav.projects'), href: "#projects" },
+    { name: t('nav.contact'), href: "#contact" },
   ];
 
   return (
@@ -28,7 +32,7 @@ export function Header() {
               whileHover={{ scale: 1.05 }}
               className="text-2xl font-bold text-[var(--neon-cyan)] tracking-wider cursor-pointer"
             >
-              {"<Dhouglas Bandeira />"}
+              {t('header.logo')}
             </motion.div>
           </ScrollLink>
           
@@ -50,19 +54,42 @@ export function Header() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--neon-cyan)] group-hover:w-full transition-all duration-300" />
               </motion.a>
             ))}
+            {/* Language Toggle */}
+            <motion.button
+              onClick={toggleLanguage}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--neon-${language === 'en' ? 'pink' : 'green'})]/10 border border-[var(--neon-${language === 'en' ? 'pink' : 'green'})] hover:border-[var(--neon-${language === 'en' ? 'pink' : 'green'})] hover:shadow-[0_0_10px_var(--neon-${language === 'en' ? 'pink' : 'green'})] transition-all duration-300 text-[var(--neon-${language === 'en' ? 'pink' : 'green'})] cursor-pointer`}
+            >
+              <Languages className="h-4 w-4" />
+              <span className="uppercase">{language}</span>
+            </motion.button>
           </div>
           
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="md:hidden text-[var(--neon-cyan)]"
-          >
-            <div className="space-y-1">
-              <div className="w-6 h-0.5 bg-[var(--neon-cyan)]"></div>
-              <div className="w-6 h-0.5 bg-[var(--neon-cyan)]"></div>
-              <div className="w-6 h-0.5 bg-[var(--neon-cyan)]"></div>
-            </div>
-          </motion.button>
+          <div className="md:hidden flex items-center gap-3">
+            {/* Mobile Language Toggle */}
+            <motion.button
+              onClick={toggleLanguage}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-1 px-2 py-1 rounded bg-[var(--neon-pink)]/10 border border-[var(--neon-pink)]/30 text-[var(--neon-pink)]"
+            >
+              <Languages className="h-4 w-4" />
+              <span className="text-xs uppercase">{language}</span>
+            </motion.button>
+            
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="text-[var(--neon-cyan)]"
+            >
+              <div className="space-y-1">
+                <div className="w-6 h-0.5 bg-[var(--neon-cyan)]"></div>
+                <div className="w-6 h-0.5 bg-[var(--neon-cyan)]"></div>
+                <div className="w-6 h-0.5 bg-[var(--neon-cyan)]"></div>
+              </div>
+            </motion.button>
+          </div>
         </div>
       </nav>
     </motion.header>

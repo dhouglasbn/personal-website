@@ -2,13 +2,16 @@ import { motion } from "motion/react";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export function About() {
+  const { t } = useLanguage()
+
   const achievements = [
-    { number: "10+", label: "Projects Completed" },
-    { number: "3+", label: "Years Experience" },
-    { number: "15+", label: "Technologies Mastered" },
-    { number: "99%", label: "Client Satisfaction" },
+    { number: "10+", label: t('about.projects') },
+    { number: "3+", label: t('about.experience') },
+    { number: "15+", label: t('about.technologies') },
+    { number: "99%", label: t('about.satisfaction') },
   ];
 
   return (
@@ -22,7 +25,7 @@ export function About() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--neon-cyan)]">
-            About the Developer
+            {t('about.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[var(--neon-cyan)] to-[var(--neon-pink)] mx-auto" />
         </motion.div>
@@ -44,7 +47,7 @@ export function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--dark-bg)]/80 to-transparent" />
               <div className="absolute bottom-4 left-4">
                 <Badge className="bg-[var(--neon-green)]/20 text-[var(--neon-green)] border-[var(--neon-green)]">
-                  Always Coding
+                  {t('about.badge')}
                 </Badge>
               </div>
             </div>
@@ -58,34 +61,29 @@ export function About() {
             className="space-y-6"
           >
             <h3 className="text-2xl font-semibold text-white mb-4">
-              Decoding the Future, One Line at a Time
+              {t('about.subtitle')}
             </h3>
             
             <p className="text-gray-300 leading-relaxed">
-              In the beginning of 2021, I began my path in web development with the Node.js + React.js stack. 
-              Since then, I've grown into a full-stack developer, and this stack has shaped the way 
-              I understand technology, software principles, and innovation.
+              {t('about.description1')}
             </p>
             
             <p className="text-gray-300 leading-relaxed">
-              When I'm not crafting immersive digital experiences, you'll find me exploring 
-              new frameworks. I’m always eager to learn and explore new ideas — who knows, maybe one day 
-              I'll shift into a new field. But for now, I'm focused on building my career and finding 
-              new opportunities in web development.
+              {t('about.description2')}
             </p>
             
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-[var(--neon-cyan)] rounded-full animate-pulse" />
-                <span className="text-gray-300">Continuously exploring new tech</span>
+                <span className="text-gray-300">{t('about.studying')}</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-[var(--neon-pink)] rounded-full animate-pulse" />
-                <span className="text-gray-300">Available for freelance projects</span>
+                <span className="text-gray-300">{t('about.freelance')}</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-[var(--neon-green)] rounded-full animate-pulse" />
-                <span className="text-gray-300">Open to collaboration</span>
+                <span className="text-gray-300">{t('about.collaboration')}</span>
               </div>
             </div>
           </motion.div>

@@ -9,19 +9,28 @@ import {
 export const contactInfo = [
   {
     icon: Mail,
-    label: "Email",
+    label: {
+      en: 'Email',
+      pt: 'E-mail'
+    },
     value: "dhouglasbn@gmail.com",
     color: "var(--neon-cyan)",
   },
   {
     icon: Phone,
-    label: "Phone",
+    label: {
+      en: 'Phone',
+      pt: 'Telefone'
+    },
     value: "+55 (83) 99414-1260",
     color: "var(--neon-pink)",
   },
   {
     icon: MapPin,
-    label: "Location",
+    label: {
+      en: 'Location',
+      pt: 'Localização'
+    },
     value: "Campina Grande, PB - Brazil",
     color: "var(--neon-green)",
   }

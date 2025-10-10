@@ -1,7 +1,10 @@
 export const projects = [
   {
     title: "CodeCraft Summit",
-    description: "A simple event subscriber with user ranking by links sent and AI assistance developed during NLW Connect event",
+    description: {
+      en: "A simple event subscriber with user ranking by links sent and AI assistance developed during NLW Connect event.",
+      pt: "Uma inscrição simples para eventos, tem um ranking de usuários pela quantidade de links de inscrição enviados e uma assistente IA desenvolvida durante o evento NLW Connect."
+    },
     image: "https://i.imgur.com/nvcTQxT.png",
     tags: ["ReactJS", "Next.js", "NodeJS", "Google Gemini", "PostgresSQL", "Redis", "Prisma", "Fastify"],
     demo_url: "",
@@ -11,7 +14,10 @@ export const projects = [
   },
   {
     title: "Task",
-    description: "A notion.so clone that allows users to make ToDo lists and allows teams to organize tasks",
+    description: {
+      en: "A notion.so clone that allows users to make ToDo lists and allows teams to organize tasks.",
+      pt: "Um clone do notion.so que permite usuários criarem listas de tarefas e permitem times organizarem suas atividades."
+    },
     image: "https://i.ibb.co/GJ6zkCj/task1.png",
     tags: ["ReactJS", "NodeJS", "MongoDB", "TypeScript", "Express"],
     demo_url: "https://desafio-codex-grupo-3.github.io/desafio-codex-2024-FRONTEND/",
@@ -21,7 +27,10 @@ export const projects = [
   },
   {
     title: "Let Me Ask",
-    description: "Q&A rooms App that allows people to get other users answers & AI answers developed during NLW Agents event",
+    description: {
+      en: "Q&A rooms App that allows people to get other users answers & AI answers developed during NLW Agents event.",
+      pt: "Uma aplicação de salas de perguntas e respostas que permite usuários receberem respostas de pessoas e uma assistente IA desenvolvida durante o evento NLW Agents."
+    },
     image: "https://i.imgur.com/4rCc0Td.png",
     tags: ["ReactJS", "NodeJS", "Google Gemini", "Drizzle", "Fastify", "Tailwind", "Tanstack", "RadixUI"],
     demo_url: "#",
@@ -31,7 +40,10 @@ export const projects = [
   },
   {
     title: "JSExperts Drive",
-    description: "A Google Drive Clone that uses pipeline and thread process to upload files developed during JSExperts event",
+    description: {
+      en: "A Google Drive Clone that uses pipeline and thread process to upload files developed during JSExperts event.",
+      pt: "Um clone do Google Drive que usa pipeline e processamento em thread para fazer upload de arquivos desenvolvido durante o evento JSExperts."
+    },
     image: "https://i.imgur.com/w8Bpwta.png",
     tags: ["NodeJS", "Socket.io", "HTML5", "CSS3"],
     demo_url: "#",
@@ -41,7 +53,10 @@ export const projects = [
   },
   {
     title: "Pits A",
-    description: "A server responsible for managing the whole business rules of a pizzaria",
+    description: {
+      en: "A server responsible for managing the whole business rules of a pizzaria.",
+      pt: "Um servidor responsável por gerenciar toda a regra de negócio de uma pizzaria."
+    },
     image: "https://i.imgur.com/W49mVVx.jpeg",
     tags: ["SpringBoot", "JUnit5", "h2", "WebSockets"],
     demo_url: "#",

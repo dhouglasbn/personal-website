@@ -20,6 +20,7 @@ import {
   FormMessage,
 } from "./ui/form";
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser'
+import { useLanguage } from "../contexts/LanguageContext";
 
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -35,6 +36,7 @@ const contactFormSchema = z.object({
 type ContactFormSchema = z.infer<typeof contactFormSchema>
 
 export function Contact() {
+  const { t, language } = useLanguage()
   const form = useForm<ContactFormSchema>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -77,12 +79,11 @@ export function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--neon-cyan)]">
-            Initiate Contact
+            {t('contact.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[var(--neon-cyan)] to-[var(--neon-pink)] mx-auto mb-6" />
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Ready to build the future together? Let's connect and discuss your next 
-            cyberpunk project in the digital realm.
+            {t('contact.description')}
           </p>
         </motion.div>
 
@@ -96,7 +97,7 @@ export function Contact() {
           >
             <Card className="bg-[var(--dark-bg)]/80 border-2 border-[var(--neon-cyan)]/20 hover:border-[var(--neon-cyan)]/40 transition-all duration-300 p-8">
               <h3 className="text-2xl font-bold text-white mb-6">
-                Send Transmission
+                {t('contact.sendTransmission')}
               </h3>
               
               <Form {...form}>
@@ -109,10 +110,10 @@ export function Contact() {
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-gray-300">Name</FormLabel>
+                          <FormLabel className="text-gray-300">{t('contact.name')}</FormLabel>
                           <FormControl>
                             <Input
-                              placeholder="Enter your name"
+                              placeholder={t('contact.namePlaceholder')}
                               className="bg-[var(--dark-secondary)]/50 border-[var(--neon-cyan)]/30 focus:border-[var(--neon-cyan)] text-white placeholder-gray-500"
                               {...field}
                             />
@@ -128,11 +129,11 @@ export function Contact() {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-gray-300">Email</FormLabel>
+                          <FormLabel className="text-gray-300">{t('contact.email')}</FormLabel>
                           <FormControl>
                             <Input
                               type="email"
-                              placeholder="your.email@matrix.dev"
+                              placeholder={t('contact.emailPlaceholder')}
                               className="bg-[var(--dark-secondary)]/50 border-[var(--neon-cyan)]/30 focus:border-[var(--neon-cyan)] text-white placeholder-gray-500"
                               {...field}
                             />
@@ -149,10 +150,10 @@ export function Contact() {
                     name="subject"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-gray-300">Subject</FormLabel>
+                        <FormLabel className="text-gray-300">{t('contact.subject')}</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="Project collaboration"
+                            placeholder={t('contact.subjectPlaceholder')}
                             className="bg-[var(--dark-secondary)]/50 border-[var(--neon-cyan)]/30 focus:border-[var(--neon-cyan)] text-white placeholder-gray-500"
                             {...field}
                           />
@@ -168,10 +169,10 @@ export function Contact() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-gray-300">Message</FormLabel>
+                        <FormLabel className="text-gray-300">{t('contact.message')}</FormLabel>
                         <FormControl>
                           <Textarea
-                            placeholder="Describe your project or collaboration idea..."
+                            placeholder={t('contact.messagePlaceholder')}
                             rows={6}
                             className="bg-[var(--dark-secondary)]/50 border-[var(--neon-cyan)]/30 focus:border-[var(--neon-cyan)] text-white placeholder-gray-500 resize-none"
                             {...field}
@@ -188,7 +189,7 @@ export function Contact() {
                     className="w-full bg-[var(--neon-cyan)] text-black hover:bg-[var(--neon-cyan)]/80 hover:shadow-[0_0_20px_var(--neon-cyan)] transition-all duration-300 group cursor-pointer"
                   >
                     <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    Send Message
+                    {t('contact.sendMessage')}
                   </Button>
                 </form>
               </Form>
@@ -205,13 +206,13 @@ export function Contact() {
           >
             <div>
               <h3 className="text-2xl font-bold text-white mb-6">
-                Contact Protocols
+                {t('contact.protocols')}
               </h3>
               
               <div className="space-y-4">
                 {contactInfo.map((info, index) => (
                   <motion.div
-                    key={info.label}
+                    key={info.label.en}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -228,7 +229,7 @@ export function Contact() {
                       />
                     </div>
                     <div>
-                      <p className="text-gray-400 text-sm">{info.label}</p>
+                      <p className="text-gray-400 text-sm">{language === 'en' ? info.label.en : info.label.pt}</p>
                       <p className="text-white font-medium">{info.value}</p>
                     </div>
                   </motion.div>
@@ -238,7 +239,7 @@ export function Contact() {
 
             <div>
               <h3 className="text-xl font-bold text-white mb-4">
-                Social Networks
+                {t('contact.socialNetworks')}
               </h3>
               
               <div className="flex space-x-4">
@@ -266,26 +267,26 @@ export function Contact() {
 
             <div>
               <h3 className="text-xl font-bold text-white mb-4">
-                Current Status
+                {t('contact.currentStatus')}
               </h3>
               
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-[var(--neon-green)] rounded-full animate-pulse"></div>
                   <Badge className="bg-[var(--neon-green)]/20 text-[var(--neon-green)] border-[var(--neon-green)]">
-                    Available for new projects
+                    {t('contact.status.available')}
                   </Badge>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-[var(--neon-cyan)] rounded-full animate-pulse"></div>
                   <Badge className="bg-[var(--neon-cyan)]/20 text-[var(--neon-cyan)] border-[var(--neon-cyan)]">
-                    Remote collaboration preferred
+                    {t('contact.status.remote')}
                   </Badge>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-[var(--neon-pink)] rounded-full animate-pulse"></div>
                   <Badge className="bg-[var(--neon-pink)]/20 text-[var(--neon-pink)] border-[var(--neon-pink)]">
-                    Response time: 24 hours
+                    {t('contact.status.response')}
                   </Badge>
                 </div>
               </div>

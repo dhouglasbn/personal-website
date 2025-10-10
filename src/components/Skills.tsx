@@ -2,40 +2,43 @@ import { motion } from "motion/react";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Progress } from "./ui/progress";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export function Skills() {
+  const { t } = useLanguage()
+
   const skillCategories = [
     {
-      title: "Frontend Technologies",
+      title: t('skills.frontend'),
       color: "var(--neon-cyan)",
       skills: [
-        { name: "React", level: 85, icon: "⚛️" },
+        { name: "React", level: 90, icon: "⚛️" },
         { name: "TypeScript", level: 95, icon: "🔷" },
-        { name: "Next.js", level: 70, icon: "▲" },
-        { name: "Tailwind CSS", level: 75, icon: "🎨" },
+        { name: "Next.js", level: 78, icon: "▲" },
+        { name: "Tailwind CSS", level: 80, icon: "🎨" },
         { name: "Motion/Framer", level: 85, icon: "✨" },
       ]
     },
     {
-      title: "Backend & Database",
+      title: t('skills.backend'),
       color: "var(--neon-pink)",
       skills: [
-        { name: "Node.js", level: 90, icon: "🟢" },
-        { name: "Express", level: 85, icon: "🚀" },
-        { name: "MongoDB", level: 85, icon: "🍃" },
-        { name: "PostgreSQL", level: 95, icon: "🐘" },
+        { name: "Node.js", level: 96, icon: "🟢" },
+        { name: "Express", level: 94, icon: "🚀" },
+        { name: "MongoDB", level: 90, icon: "🍃" },
+        { name: "PostgreSQL", level: 96, icon: "🐘" },
         { name: "AI SDK", level: 70, icon: "🤖" },
       ]
     },
     {
-      title: "Tools & DevOps",
+      title: t('skills.tools'),
       color: "var(--neon-green)",
       skills: [
-        { name: "Git & GitHub", level: 95, icon: "🐙" },
+        { name: "Git & GitHub", level: 98, icon: "🐙" },
         { name: "Docker", level: 80, icon: "🐳" },
-        { name: "AWS", level: 50, icon: "☁️" },
+        { name: "AWS", level: 70, icon: "☁️" },
         { name: "Figma", level: 70, icon: "🎨" },
-        { name: "Npm", level: 90, icon: "💻" },
+        { name: "Npm", level: 94, icon: "💻" },
       ]
     }
   ];
@@ -66,12 +69,11 @@ export function Skills() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--neon-pink)]">
-            Skills & Expertise
+            {t('skills.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[var(--neon-pink)] to-[var(--neon-green)] mx-auto mb-6" />
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A comprehensive arsenal of modern technologies and tools for building 
-            next-generation digital experiences.
+            {t('skills.description')}
           </p>
         </motion.div>
 
@@ -142,7 +144,7 @@ export function Skills() {
           className="text-center"
         >
           <h3 className="text-2xl font-semibold text-white mb-6">
-            Certifications & Achievements
+            {t('skills.certifications')}
           </h3>
           
           <div className="flex flex-wrap justify-center gap-3">
