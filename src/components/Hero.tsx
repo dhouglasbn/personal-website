@@ -5,11 +5,13 @@ import { ChevronDown, Code, Download, Zap } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 
 export function Hero() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
   const handleDownloadCV = () => {
     const link = document.createElement('a')
-    link.href = 'https://drive.google.com/file/d/1IYRuxx2U9ddbxn_NNec3XosUOsbMXG5X/view?usp=sharing'
+    link.href = language === 'en' ? 
+    'https://drive.google.com/file/d/1QAShiwiib76aBd0FCMmw5Vw8oqUp8_VH/view?usp=sharing' : 
+    'https://drive.google.com/file/d/1oxiJXrcMbeXLE809AVbmD4G-_-A5DhIs/view?usp=sharing'
     link.target = '_blank'
     link.download = 'DhouglasBandeira_CV.pdf'
     document.body.appendChild(link)
