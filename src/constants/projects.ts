@@ -7,7 +7,7 @@ export const projects = [
     },
     image: "https://i.imgur.com/nvcTQxT.png",
     tags: ["ReactJS", "Next.js", "NodeJS", "Google Gemini", "PostgresSQL", "Redis", "Prisma", "Fastify"],
-    demo_url: "",
+    demo_url: "https://nlw-connect-react-js.vercel.app/",
     github_url: "https://github.com/dhouglasbn/nlwConnect-ReactJS",
     color: "var(--neon-cyan)",
     featured: true,
