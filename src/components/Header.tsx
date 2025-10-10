@@ -59,7 +59,7 @@ export function Header() {
               onClick={toggleLanguage}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--neon-${language === 'en' ? 'pink' : 'green'})]/10 border border-[var(--neon-${language === 'en' ? 'pink' : 'green'})] hover:border-[var(--neon-${language === 'en' ? 'pink' : 'green'})] hover:shadow-[0_0_10px_var(--neon-${language === 'en' ? 'pink' : 'green'})] transition-all duration-300 text-[var(--neon-${language === 'en' ? 'pink' : 'green'})] cursor-pointer`}
+              className={`flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--neon-${language === 'en' ? 'pink' : 'green'})]/20 border border-[var(--neon-${language === 'en' ? 'pink' : 'green'})] hover:border-[var(--neon-${language === 'en' ? 'pink' : 'green'})] hover:shadow-[0_0_10px_var(--neon-${language === 'en' ? 'pink' : 'green'})] transition-all duration-300 text-[var(--neon-${language === 'en' ? 'pink' : 'green'})] cursor-pointer`}
             >
               <Languages className="h-4 w-4" />
               <span className="uppercase">{language}</span>
