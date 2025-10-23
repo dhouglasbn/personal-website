@@ -46,7 +46,7 @@ export const socialLinks = [
   {
     icon: Linkedin,
     label: "LinkedIn",
-    url: "https://linkedin.com/in/dhouglas-bandeira-56b302119",
+    url: "https://linkedin.com/in/dhouglas-bandeira",
     color: "var(--neon-pink)",
   }
 ];
