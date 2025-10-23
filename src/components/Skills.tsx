@@ -55,6 +55,10 @@ export function Skills() {
     {
       title: "Semana X",
       link: "https://drive.google.com/file/d/1-rvmdx0OYE_hmKdplTs-Vne6npxRw_ha/view?usp=sharing"
+    },
+    {
+      title: "Personal Branding & Social Selling",
+      link: "https://drive.google.com/file/d/1IUsQkOVbCZ8NZCbXD6kJRZWdsBRgc94d/view?usp=sharing"
     }
   ]
 
