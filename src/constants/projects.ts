@@ -1,67 +1,96 @@
 export const projects = [
-  {
-    title: "CodeCraft Summit",
-    description: {
-      en: "A simple event subscriber with user ranking by links sent and AI assistance developed during NLW Connect event.",
-      pt: "Uma inscrição simples para eventos, tem um ranking de usuários pela quantidade de links de inscrição enviados e uma assistente IA desenvolvida durante o evento NLW Connect."
-    },
-    image: "https://i.imgur.com/nvcTQxT.png",
-    tags: ["ReactJS", "Next.js", "NodeJS", "Google Gemini", "PostgresSQL", "Redis", "Prisma", "Fastify"],
-    demo_url: "https://nlw-connect-react-js.vercel.app/",
-    github_url: "https://github.com/dhouglasbn/nlwConnect-ReactJS",
-    color: "var(--neon-cyan)",
-    featured: true,
-  },
-  {
-    title: "Task",
-    description: {
-      en: "A notion.so clone that allows users to make ToDo lists and allows teams to organize tasks.",
-      pt: "Um clone do notion.so que permite usuários criarem listas de tarefas e permitem times organizarem suas atividades."
-    },
-    image: "https://i.ibb.co/GJ6zkCj/task1.png",
-    tags: ["ReactJS", "NodeJS", "MongoDB", "TypeScript", "Express"],
-    demo_url: "https://desafio-codex-grupo-3.github.io/desafio-codex-2024-FRONTEND/",
-    github_url: "https://github.com/DESAFIO-CODEX-GRUPO-3/desafio-codex-2024-FRONTEND/tree/main",
-    color: "var(--neon-pink)",
-    featured: true,
-  },
-  {
-    title: "Let Me Ask",
-    description: {
-      en: "Q&A rooms App that allows people to get other users answers & AI answers developed during NLW Agents event.",
-      pt: "Uma aplicação de salas de perguntas e respostas que permite usuários receberem respostas de pessoas e uma assistente IA desenvolvida durante o evento NLW Agents."
-    },
-    image: "https://i.imgur.com/4rCc0Td.png",
-    tags: ["ReactJS", "NodeJS", "Google Gemini", "Drizzle", "Fastify", "Tailwind", "Tanstack", "RadixUI"],
-    demo_url: "#",
-    github_url: "https://github.com/dhouglasbn/nlw-agents",
-    color: "var(--neon-green)",
-    featured: false,
-  },
-  {
-    title: "JSExperts Drive",
-    description: {
-      en: "A Google Drive Clone that uses pipeline and thread process to upload files developed during JSExperts event.",
-      pt: "Um clone do Google Drive que usa pipeline e processamento em thread para fazer upload de arquivos desenvolvido durante o evento JSExperts."
-    },
-    image: "https://i.imgur.com/w8Bpwta.png",
-    tags: ["NodeJS", "Socket.io", "HTML5", "CSS3"],
-    demo_url: "#",
-    github_url: "https://github.com/dhouglasbn/jsExperts5",
-    color: "var(--neon-cyan)",
-    featured: false,
-  },
-  {
-    title: "Pits A",
-    description: {
-      en: "A server responsible for managing the whole business rules of a pizzaria.",
-      pt: "Um servidor responsável por gerenciar toda a regra de negócio de uma pizzaria."
-    },
-    image: "https://i.imgur.com/W49mVVx.jpeg",
-    tags: ["SpringBoot", "JUnit5", "h2", "WebSockets"],
-    demo_url: "#",
-    github_url: "https://github.com/psoft-2023-1/projeto-psoft-grupo3-projeto-psoft",
-    color: "var(--neon-pink)",
-    featured: false,
-  }
+	{
+		title: "CodeCraft Summit",
+		description: {
+			en: "A simple event subscriber with user ranking by links sent and AI assistance developed during NLW Connect event.",
+			pt: "Uma inscrição simples para eventos, tem um ranking de usuários pela quantidade de links de inscrição enviados e uma assistente IA desenvolvida durante o evento NLW Connect.",
+		},
+		image: "https://i.imgur.com/nvcTQxT.png",
+		tags: [
+			"ReactJS",
+			"Next.js",
+			"NodeJS",
+			"Google Gemini",
+			"PostgresSQL",
+			"Redis",
+			"Prisma",
+			"Fastify",
+		],
+		demo_url: "https://nlw-connect-react-js.vercel.app/",
+		github_url: "https://github.com/dhouglasbn/nlwConnect-ReactJS",
+		color: "var(--neon-cyan)",
+		featured: true,
+	},
+	{
+		title: "HelpDesk",
+		description: {
+			en: "A simple platform that connects clients to technicians for delivery of services",
+			pt: "Uma plataforma de atendimento técnico que relaciona técnicos a clientes para realização de serviços.",
+		},
+		image: "https://i.imgur.com/TIE8YZT.png",
+		tags: [
+			"ReactJS",
+			"TanStackQuery",
+			"AntDesign Components",
+			"NodeJS",
+			"PostgreSQL",
+			"DrizzleORM",
+			"TypeScript",
+			"Express",
+		],
+		demo_url: "https://helpdesk-app-blush.vercel.app/",
+		github_url: "https://github.com/dhouglasbn/helpdesk-app",
+		color: "var(--neon-pink)",
+		featured: true,
+	},
+	{
+		title: "Let Me Ask",
+		description: {
+			en: "Q&A rooms App that allows people to get other users answers & AI answers developed during NLW Agents event.",
+			pt: "Uma aplicação de salas de perguntas e respostas que permite usuários receberem respostas de pessoas e uma assistente IA desenvolvida durante o evento NLW Agents.",
+		},
+		image: "https://i.imgur.com/4rCc0Td.png",
+		tags: [
+			"ReactJS",
+			"NodeJS",
+			"Google Gemini",
+			"Drizzle",
+			"Fastify",
+			"Tailwind",
+			"Tanstack",
+			"RadixUI",
+		],
+		demo_url: "#",
+		github_url: "https://github.com/dhouglasbn/nlw-agents",
+		color: "var(--neon-green)",
+		featured: false,
+	},
+	{
+		title: "JSExperts Drive",
+		description: {
+			en: "A Google Drive Clone that uses pipeline and thread process to upload files developed during JSExperts event.",
+			pt: "Um clone do Google Drive que usa pipeline e processamento em thread para fazer upload de arquivos desenvolvido durante o evento JSExperts.",
+		},
+		image: "https://i.imgur.com/w8Bpwta.png",
+		tags: ["NodeJS", "Socket.io", "HTML5", "CSS3"],
+		demo_url: "#",
+		github_url: "https://github.com/dhouglasbn/jsExperts5",
+		color: "var(--neon-cyan)",
+		featured: false,
+	},
+	{
+		title: "Task",
+		description: {
+			en: "A notion.so clone that allows users to make ToDo lists and allows teams to organize tasks.",
+			pt: "Um clone do notion.so que permite usuários criarem listas de tarefas e permitem times organizarem suas atividades.",
+		},
+		image: "https://i.ibb.co/GJ6zkCj/task1.png",
+		tags: ["ReactJS", "NodeJS", "MongoDB", "TypeScript", "Express"],
+		demo_url:
+			"https://desafio-codex-grupo-3.github.io/desafio-codex-2024-FRONTEND/",
+		github_url:
+			"https://github.com/DESAFIO-CODEX-GRUPO-3/desafio-codex-2024-FRONTEND/tree/main",
+		color: "var(--neon-pink)",
+		featured: false,
+	},
 ];
