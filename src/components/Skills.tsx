@@ -23,11 +23,11 @@ export function Skills() {
       title: t('skills.backend'),
       color: "var(--neon-pink)",
       skills: [
-        { name: "Node.js", level: 96, icon: "🟢" },
-        { name: "Express", level: 94, icon: "🚀" },
+        { name: "NodeJS", level: 96, icon: "🟢" },
+        { name: "Microservices", level: 90, icon: "🧩" },
         { name: "MongoDB", level: 90, icon: "🍃" },
         { name: "PostgreSQL", level: 96, icon: "🐘" },
-        { name: "AI SDK", level: 70, icon: "🤖" },
+        { name: "Unit Tests", level: 90, icon: "🤖" },
       ]
     },
     {
@@ -38,7 +38,7 @@ export function Skills() {
         { name: "Docker", level: 80, icon: "🐳" },
         { name: "AWS", level: 70, icon: "☁️" },
         { name: "Figma", level: 70, icon: "🎨" },
-        { name: "Npm", level: 94, icon: "💻" },
+        { name: "Pulumi", level: 90, icon: "💻" },
       ]
     }
   ];
@@ -47,6 +47,10 @@ export function Skills() {
     {
       title: "NLW Connect - Nodejs",
       link: "https://drive.google.com/file/d/1SB3RDnUqW1Y6kb4RDjVNKyxgQtl0F8RW/view?usp=sharing"
+    },
+    {
+      title: "NLW Operator - Fullstack",
+      link: "https://drive.google.com/file/d/1_1XlxqnsD6dTNb5Qb29zhgr2zOVBIPsV/view?usp=sharing"
     },
     {
       title: "Scrum Fundamentals",
@@ -59,6 +63,10 @@ export function Skills() {
     {
       title: "Personal Branding & Social Selling",
       link: "https://drive.google.com/file/d/1IUsQkOVbCZ8NZCbXD6kJRZWdsBRgc94d/view?usp=sharing"
+    },
+    {
+      title: "Global Career Summit 2025",
+      link: "https://drive.google.com/file/d/1FiF1ibKrbbt6HGZI3YBTNxZwKei3frii/view?usp=sharing"
     }
   ]
 
