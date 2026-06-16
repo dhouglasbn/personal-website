@@ -40,6 +40,17 @@ export function Skills() {
         { name: "Figma", level: 70, icon: "🎨" },
         { name: "Pulumi", level: 90, icon: "💻" },
       ]
+    },
+    {
+      title: t('skills.dataEngineering'),
+      color: "var(--neon-cyan)",
+      skills: [
+        { name: "Python", level: 98, icon: "🐍" },
+        { name: "Data Analysis", level: 80, icon: "📊" },
+        { name: "Numpy", level: 95, icon: "🔢" },
+        { name: "Pandas", level: 90, icon: "🐼" },
+        { name: "Sqlite3", level: 98, icon: "💾" },
+      ]
     }
   ];
 
@@ -67,12 +78,16 @@ export function Skills() {
     {
       title: "Global Career Summit 2025",
       link: "https://drive.google.com/file/d/1FiF1ibKrbbt6HGZI3YBTNxZwKei3frii/view?usp=sharing"
+    },
+    {
+      title: "Accenture Bootcamp - Python para Análise e Automação de dados",
+      link: "https://drive.google.com/file/d/1cN4sbJesyCJToj4revibrE9YakQ9jv9L/view?usp=sharing"
     }
   ]
 
   return (
     <section id="skills" className="py-20 px-6 bg-[var(--dark-secondary)]/30">
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -89,7 +104,7 @@ export function Skills() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-4 gap-8 mb-16">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}

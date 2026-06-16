@@ -10,7 +10,7 @@ export function About() {
   const achievements = [
     { number: "10+", label: t('about.projects') },
     { number: "3+", label: t('about.experience') },
-    { number: "15+", label: t('about.technologies') },
+    { number: "20+", label: t('about.technologies') },
     { number: "99%", label: t('about.satisfaction') },
   ];
 
