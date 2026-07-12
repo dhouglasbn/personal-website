@@ -82,6 +82,10 @@ export function Skills() {
     {
       title: "Accenture Bootcamp - Python para Análise e Automação de dados",
       link: "https://drive.google.com/file/d/1cN4sbJesyCJToj4revibrE9YakQ9jv9L/view?usp=sharing"
+    },
+    {
+      title: "Dados: Uma Introdução Executiva",
+      link: "https://drive.google.com/file/d/1kNygwUa_wlfchnCmCDJWiClXMA0eLAPN/view?usp=sharing"
     }
   ]
 
